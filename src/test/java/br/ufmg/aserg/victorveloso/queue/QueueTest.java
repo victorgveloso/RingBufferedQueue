@@ -14,17 +14,15 @@ import java.util.Arrays;
  */
 class IntQueueTest {
     private Queue<Integer> sut;
-    private int[] array;
 
     @BeforeEach
     void setUp() {
-        array = new int[]{23, 14, 55, 3, 0, -5};
-        sut = Queue.fromIntArray(array);
+        sut = new Queue<>(new Integer[]{23, 14, 55, 3, 0, -5});
     }
 
     @Test
     void testSize() {
-        assertThat(sut.size()).isEqualTo(array.length);
+        assertThat(sut.size()).isEqualTo(6);
     }
 
     @Test
