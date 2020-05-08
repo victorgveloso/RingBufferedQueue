@@ -1,7 +1,6 @@
 package br.ufmg.aserg.victorveloso.queue;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 /**
  * A queue implementation based on ring buffer and cursors. Hence, less "memory hungry" and less flexible.
@@ -15,16 +14,8 @@ public class Queue<T> {
     public Queue(final T[] elements) {
         this.elements = addTailNode(elements);
         start = 0;
-        end = scanSize(elements);
-    }
-
-    /**
-     * Static factory method for Queue of Integers initialization from built-in int[] type
-     * @param array Queue elements contained in an array of int
-     * @return Initialized Queue
-     */
-    public static Queue<Integer> fromIntArray(final int[] array) {
-        return new Queue<>(IntStream.of(array).boxed().toArray(Integer[]::new));
+        end = elements.length;
+        this.elements = Arrays.copyOf(elements, elements.length + 1);
     }
 
     /**
