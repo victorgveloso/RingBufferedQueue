@@ -25,4 +25,21 @@ class IntQueueTest {
         assertThat(sut.size()).isEqualTo(6);
     }
 
+    @Test
+    void testDequeueAndEnqueue() {
+        Integer popped = sut.dequeue();
+        assertThat(sut.size()).isEqualTo(5);
+        assertThat(popped).isEqualTo(23);
+        sut.enqueue(popped);
+        assertThat(sut.size()).isEqualTo(6);
+    }
+
+
+    @Test
+    void testEnqueueOnFull() {
+        assertThatExceptionOfType(ArrayIndexOutOfBoundsException.class).isThrownBy(() -> {
+            sut.enqueue(8);
+        });
+    }
+
 }
