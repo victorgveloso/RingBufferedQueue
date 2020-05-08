@@ -13,8 +13,8 @@ public class Queue<T> {
 
     public Queue(final T[] elements) {
         start = 0;
+        end = elements.length;
         this.elements = Arrays.copyOf(elements, elements.length + 1);
-        end = elements.length - 1;
     }
 
     /**
