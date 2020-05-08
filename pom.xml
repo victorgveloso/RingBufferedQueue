@@ -45,6 +45,7 @@
                     <fullMutationMatrix>true</fullMutationMatrix>
                     <outputFormats>
                         <param>DetailedCSV</param>
+                        <param>CSV</param>
                         <param>XML</param>
                     </outputFormats>
                     <mutators>ALL</mutators>
