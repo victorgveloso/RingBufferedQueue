@@ -15,18 +15,6 @@ class IntQueueTest {
         sut = new Queue<>(new Integer[]{23, 14, 55, 3, 0, -5});
     }
     @Test
-    void testSize() {
-        assertThat(sut.size()).isEqualTo(6);
-    }
-
-    @Test
-    void testEnqueueOnFull() {
-        assertThatExceptionOfType(ArrayIndexOutOfBoundsException.class).isThrownBy(() -> {
-            sut.enqueue(8);
-        });
-    }
-
-    @Test
     void testDequeueAndEnqueue() {
         Integer popped = sut.dequeue();
         assertThat(sut.size()).isEqualTo(5);
