@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  * Test cases where Queue is initialized with an array of ints by the static factory method .fromIntArray
@@ -40,6 +41,11 @@ class IntQueueTest {
         assertThatExceptionOfType(ArrayIndexOutOfBoundsException.class).isThrownBy(() -> {
             sut.enqueue(8);
         });
+    }
+
+    @Test
+    void testThatTakesForever() {
+        sut.methodThatTakesForever(1);
     }
 
 }

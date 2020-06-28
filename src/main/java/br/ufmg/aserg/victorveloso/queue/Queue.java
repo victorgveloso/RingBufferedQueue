@@ -124,6 +124,12 @@ public class Queue<T> {
         return equalsDeeply(queue);
     }
 
+    public void methodThatTakesForever(int i){
+        while (i > 1){
+            Arrays.stream(dump()).forEach(this::enqueue);
+        }
+    }
+
     /**
      * Compare valid elements to another queue' valid elements
      * @param queue Another queue to be compared with
